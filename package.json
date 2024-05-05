@@ -1,0 +1,18 @@
+{
+  "name": "e-hentai-downloader",
+  "version": "0.1.0",
+  "description": "CLI multi-worker gallery downloader for e-hentai.org website",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Yuukari",
+  "dependencies": {
+    "@opentf/cli-pbar": "^0.7.2",
+    "argparse": "^2.0.1",
+    "cheerio": "^1.0.0-rc.12",
+    "node-fetch": "^3.3.2",
+    "sanitize-filename": "^1.6.3"
+  }
+}
