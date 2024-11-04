@@ -4,7 +4,6 @@ import path from 'node:path';
 import fetch from 'node-fetch';
 import * as cheerio from 'cheerio';
 
-import * as io from './../io.js';
 import filenameCreator from './../utils/filenameCreator.js';
 
 import WorkerError from '../error/workerError.js';
@@ -19,8 +18,6 @@ const downloadWorker = ({ id, pageLink, retriesCount, outputDirectory, filenameT
 
         while (imageLink === null) {
             try {
-                // io.info(`[WORKER ${id}] Parse image link try #${_parseImageLinkFails + 1}`);
-
                 const imagePageHtml = await _sendRequest(pageLink);
                 const $ = cheerio.load(await imagePageHtml.text());
                 imageLink = $('#img')[0].attribs['src'];
@@ -34,8 +31,6 @@ const downloadWorker = ({ id, pageLink, retriesCount, outputDirectory, filenameT
 
         while (true) {
             try {
-                // io.info(`[WORKER ${id}] Download image try #${_parseImageLinkFails + 1}`);
-
                 fileResponse = await _sendRequest(imageLink);
                 await _download(fileResponse);
 
@@ -67,7 +62,6 @@ const downloadWorker = ({ id, pageLink, retriesCount, outputDirectory, filenameT
         }));
 
         const fileStream = fs.createWriteStream(filepath);
-        const totalBytes = response.headers.get('content-length');
 
         response.body.pipe(fileStream);
         response.body.on('error', (e) => reject(e));

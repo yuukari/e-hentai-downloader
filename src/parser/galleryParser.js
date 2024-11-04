@@ -31,9 +31,8 @@ const galleryParser = () => {
         const $ = cheerio.load(galleryPageHtml);
 
         _info.title = $('#gn').text();
-        _info.type = $('#gdc .cs.ct2').text();
+        _info.type = $('#gdc .cs.ct6').text();
         _info.rating = $('#rating_label').text().split(': ')[1];
-        _info.size = $('#gdd tr:nth-child(5) .gdt2').text();
         _info.pagesCount = parseInt($('#gdd tr:nth-child(6) .gdt2').text().replace(/\D/g, ''));
     };
 
@@ -45,7 +44,7 @@ const galleryParser = () => {
             const html = await _sendRequest(_getPaginatedUrl(currentPage));
             const $ = cheerio.load(html);
 
-            const pageElements = $('#gdt .gdtm div a');
+            const pageElements = $('#gdt a');
             for (const el of pageElements) {
                 _pagesData.push({
                     pageLink: el.attribs['href']
