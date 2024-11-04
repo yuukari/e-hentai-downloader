@@ -6,14 +6,22 @@ CLI multi-worker gallery downloader for e-hentai.org website.
 
 ### Quick start
 
-1. Install npm dependencies:
-   ```shell 
-   npm install
+1. Clone this repo:
+   ```shell
+   git clone https://github.com/yuukari/e-hentai-downloader.git
    ```
-2. View help (and make sure it's working):
+2. Install dependencies:
+   ```shell 
+   npm i
+   ```
+3. View help (and make sure it's working):
    ```shell
    node index.js -h
    ```
+
+### Known issues
+
+- ⚠️ Usage of **high workers count** may cause high RPS to server, and temporary ban of your IP address by the website.
 
 ### Usage examples
 
@@ -37,3 +45,8 @@ CLI multi-worker gallery downloader for e-hentai.org website.
       -ft "img_*c*e" \
       -c 1000
     ```
+   
+### TO-DO
+
+- [ ] Saving information about the download status and avoiding repeated downloads already existing pages - in case of failed downloads, interruption of the script, etc. 
+- [ ] Adding proxy support

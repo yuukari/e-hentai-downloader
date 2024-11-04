@@ -1,6 +1,6 @@
 {
   "name": "e-hentai-downloader",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI multi-worker gallery downloader for e-hentai.org website",
   "main": "index.js",
   "type": "module",

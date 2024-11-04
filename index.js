@@ -20,7 +20,7 @@ const downloadProgress = new ProgressBar();
 
 const init = async () => {
     const parser = new ArgumentParser({
-        description: 'e-hentai-downloader v0.1.0'
+        description: 'e-hentai-downloader v0.1.1'
     });
     parser.add_argument('-l', '--link', {
         help: 'Link to the gallery',
@@ -85,7 +85,6 @@ const prepare = async (args) => {
         `\n    Title: ${galleryInfo.title}` +
         `\n    Type: ${galleryInfo.type}` +
         `\n    Rating: ${galleryInfo.rating}` +
-        `\n    Total size: ${galleryInfo.size}` +
         `\n    Total pages count: ${galleryInfo.pagesCount}`
     );
 
